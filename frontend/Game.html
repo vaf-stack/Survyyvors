@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img :src="./assets/daggers_1_e.png" >
+  
+    <canvas  id="canavasTest" width="900" height="700" style="border:2px solid #000000"> Erro seu navegador não suporta canvas ;-;</canvas>
+    <script>    
+
+var canavasTest
+var dx = 2;
+var dy = 1;
+var x = 10;
+var y = 500;
+var WIDTH = 2;
+var HEIGHT = 2;
+
+        function draw() { 
+            ctx.fillStyle = "black" 
+            ctx.beginPath();
+            ctx.arc( y,x * 15, 20, 30, 0, 3 * Math.PI*2);
+            ctx.fill()
+            ctx.stroke()
+        
+
+
+        }
+        function drawArma() {
+           
+   }
+
+        
+        function drawCube() {
+            ctx.beginPath();
+            ctx.rect(20, 20, 150, 100);
+            ctx.stroke(); 
+        }
+        function clearscreen() {  
+
+            ctx.clearRect(0, 0, canavasTest.width, canavasTest.height);
+  var w = canavasTest.width;
+  canavasTest.width = 1;
+  canavasTest.width = w;
+        }
+       
+        function uptade() {
+            clearscreen(); 
+            draw();
+            drawArma();
+           
+        }
+        function start() {
+            canavasTest = document.getElementById("canavasTest");
+            ctx = canavasTest.getContext("2d");
+            drawArma();
+            setInterval(uptade, 60);
+
+     
+        }
+    window.addEventListener("keydown", (event) => {
+
+            console.log(event.keyCode)
+            switch (event.keyCode) {
+                case 13: 
+                 drawCube();
+                 drawArma();
+
+
+                break
+                case 38: 
+                     x -= dy
+                    
+                   
+                    
+                     
+                break
+                case 40:
+                  
+                      x += HEIGHT
+                       
+                break
+                case 37: 
+              
+                      y -= dx
+                     
+                break
+                case 39:  
+              
+                     y += WIDTH;
+                    
+                     
+                break
+
+            
+
+            }})
+            start()
+            drawArma();
+    </script>
+
+<style>
+    
+  
+</style>
+</body>
+</html>
