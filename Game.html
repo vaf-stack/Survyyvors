@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <canvas  id="canavasTest" width="900" height="600" style="border:2px solid #000000"> Erro seu navegador não suporta canvas ;-;</canvas>
+    <script>    
+var rotate = 0;
+var canavasTest
+var dx = 2;
+var dy = 1;
+var x = 10;
+var y = 500;
+var WIDTH = 2;
+var HEIGHT = 2;
+
+        function draw() { 
+            var img = new Image();   
+img.addEventListener('load', function() {
+    ctx.drawImage(img, y, x);
+}, false);
+img.src = 'https://cdn.discordapp.com/attachments/717016373733097544/749346002808602664/body_sprite.png'
+        
+
+
+        }
+    
+        function drawArma() {
+var img = new Image();   
+img.addEventListener('load', function() {
+    ctx.drawImage(img, 10, 10);
+}, false);
+img.src = 'https://cdn.discordapp.com/attachments/717016373733097544/748534649814253579/daggers_1_e.png'
+        } 
+        function efeitoTest1() {
+            var img = new Image();   
+img.addEventListener('load', function() {
+    ctx.drawImage(img, y,x * 15, 20, 30, 0, 3 * Math.PI*2);
+}, false);
+img.src = 'https://cdn.discordapp.com/attachments/717016373733097544/749291334548062311/smoke1.png'
+        }
+
+            function efeitoTest2() {
+            var img = new Image();   
+img.addEventListener('load', function() {
+    ctx.drawImage(img, y,x * 15, 20, 30, 0, 3 * Math.PI*2);
+}, false);
+img.src = 'https://media.discordapp.net/attachments/717016373733097544/749291979401199766/smoke2.png'
+        }
+        function moseTest(e) {
+    if (cursor) {
+        if (e.x, e.y) {
+            
+    }
+        }}
+
+        function drawCube() {
+            ctx.beginPath();
+            ctx.rect(20, 20, 150, 100);
+            ctx.stroke(); 
+        }
+        function clearscreen() {  
+
+            ctx.clearRect(0, 0, canavasTest.width, canavasTest.height);
+  var w = canavasTest.width;
+  canavasTest.width = 1;
+  canavasTest.width = w;
+        }
+       function uptadeEfeito() {
+          efeitoTest1();
+          efeitoTest2();
+       }
+        function funcçãoTest() {
+            clearscreen(); 
+            draw();
+                 
+        }
+        function uptade() {
+            setInterval(funcçãoTest, 50)
+        }
+        function start() {
+            canavasTest = document.getElementById("canavasTest");
+            ctx = canavasTest.getContext("2d");
+            setTimeout(uptade, 100);
+            
+            
+
+     
+        }
+    
+    window.addEventListener("keydown", (event) => {
+
+            console.log(event.keyCode)
+            switch (event.keyCode) {
+                case 13: 
+                 drawCube();
+                 drawArma();
+                
+
+                break
+            
+
+                case 38: 
+                     x -= dy
+                   
+                   
+                    
+                     
+                break
+                case 40:
+                  
+                      x += HEIGHT
+                       
+                break
+                case 37: 
+              
+                      y -= dx
+                     
+                break
+                case 39:  
+              
+                     y += WIDTH;
+                    
+                     
+                break
+
+            
+
+            }})
+            start()
+           
+    </script>
+
+<style>
+    
+  
+</style>
+</body>
+</html>
