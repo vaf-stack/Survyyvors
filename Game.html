@@ -1,143 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
     <title>Document</title>
-</head>
-<body>
- 
-    <canvas  id="canavasTest" width="900" height="600" style="border:2px solid #000000"> Erro seu navegador não suporta canvas ;-;</canvas>
-    <script>    
-var rotate = 0;
-var canavasTest
-var dx = 2;
-var dy = 1;
-var x = 10;
-var y = 500;
-var WIDTH = 2;
-var HEIGHT = 2;
+  </head>
+  <body>
+    <p id="xps">xp:</p>
+    <p id="rocks"></p>
 
-        function draw() { 
-            var img = new Image();   
-img.addEventListener('load', function() {
-    ctx.drawImage(img, y, x);
-}, false);
-img.src = 'https://cdn.discordapp.com/attachments/717016373733097544/749346002808602664/body_sprite.png'
-        
+    <canvas
+      id="canavasTest"
+      width="900"
+      height="600"
+      style="border: 2px solid #000000"
+    >
+      Erro seu navegador não suporta canvas ;-;</canvas
+    >
+    <script>
+      var rotate = 0;
+      var xp = 1;
+      document.getElementById("xps").innerText = xp;
+      var img;
+      var canavasTest;
+      var rock = 0;
+      var xp = 1;
+      var dx = 2;
+      var dy = 1;
+      var Tx = 10;
+      var Ty = 500;
+      var x = 10;
+      var y = 500;
+      var WIDTH = 2;
+      var HEIGHT = 2;
+      function drawTree() {
+        img = new Image();
+        img.addEventListener(
+          "load",
+          function () {
+            ctx.drawImage(img, Ty, Tx);
+          },
+          false
+        );
+        img.src =
+          "https://cdn.discordapp.com/attachments/717016373733097544/749346002808602664/body_sprite.png";
+      }
+      function draw() {
+        img = new Image();
+        img.addEventListener(
+          "load",
+          function () {
+            ctx.drawImage(img, y, x);
+          },
+          false
+        );
+        img.src =
+          "https://cdn.discordapp.com/attachments/717016373733097544/749346002808602664/body_sprite.png";
+      }
 
+      function drawArma() {
+        img = new Image();
+        img.addEventListener(
+          "load",
+          function () {
+            ctx.drawImage(img, 10, 10);
+          },
+          false
+        );
+        img.src =
+          "https://cdn.discordapp.com/attachments/717016373733097544/748534649814253579/daggers_1_e.png";
+      }
+      function efeitoTest1() {
+        img = new Image();
+        img.addEventListener(
+          "load",
+          function () {
+            ctx.drawImage(img, y, x * 15, 20, 30, 0, 3 * Math.PI * 2);
+          },
+          false
+        );
+        img.src =
+          "https://cdn.discordapp.com/attachments/717016373733097544/749291334548062311/smoke1.png";
+      }
 
+      function efeitoTest2() {
+        img = new Image();
+        img.addEventListener(
+          "load",
+          function () {
+            ctx.drawImage(img, y, x * 15, 20, 30, 0, 3 * Math.PI * 2);
+          },
+          false
+        );
+        img.src =
+          "https://media.discordapp.net/attachments/717016373733097544/749291979401199766/smoke2.png";
+      }
+      function moseTest(e) {
+        if (cursor) {
+          if ((e.x, e.y)) {
+          }
         }
+      }
     
-        function drawArma() {
-var img = new Image();   
-img.addEventListener('load', function() {
-    ctx.drawImage(img, 10, 10);
-}, false);
-img.src = 'https://cdn.discordapp.com/attachments/717016373733097544/748534649814253579/daggers_1_e.png'
-        } 
-        function efeitoTest1() {
-            var img = new Image();   
-img.addEventListener('load', function() {
-    ctx.drawImage(img, y,x * 15, 20, 30, 0, 3 * Math.PI*2);
-}, false);
-img.src = 'https://cdn.discordapp.com/attachments/717016373733097544/749291334548062311/smoke1.png'
-        }
-
-            function efeitoTest2() {
-            var img = new Image();   
-img.addEventListener('load', function() {
-    ctx.drawImage(img, y,x * 15, 20, 30, 0, 3 * Math.PI*2);
-}, false);
-img.src = 'https://media.discordapp.net/attachments/717016373733097544/749291979401199766/smoke2.png'
-        }
-        function moseTest(e) {
-    if (cursor) {
-        if (e.x, e.y) {
-            
-    }
-        }}
-
-        function drawCube() {
-            ctx.beginPath();
-            ctx.rect(20, 20, 150, 100);
-            ctx.stroke(); 
-        }
-        function clearscreen() {  
-
-            ctx.clearRect(0, 0, canavasTest.width, canavasTest.height);
-  var w = canavasTest.width;
-  canavasTest.width = 1;
-  canavasTest.width = w;
-        }
-       function uptadeEfeito() {
-          efeitoTest1();
-          efeitoTest2();
-       }
-        function funcçãoTest() {
-            clearscreen(); 
-            draw();
-                 
-        }
-        function uptade() {
-            setInterval(funcçãoTest, 50)
-        }
-        function start() {
-            canavasTest = document.getElementById("canavasTest");
-            ctx = canavasTest.getContext("2d");
+      function drawCube() {
+        ctx.beginPath();
+        ctx.rect(20, 20, 150, 100);
+        ctx.stroke();
+      }
+      function drawHelp(e) {
+        ctx.translate(x, y);
+        ctx.rotate((100 * Math.PI) / 900);
+        console.log(` posição x: ${e.x} posição:y ${e.y}`);
+        ctx.translate(x, y);
+      }
+      function clearscreen() {
+        ctx.clearRect(0, 0, canavasTest.width, canavasTest.height);
+        var w = canavasTest.width;
+        canavasTest.width = 1;
+        canavasTest.width = w;
+      }
+      function uptadeEfeito() {
+        efeitoTest1();
+        efeitoTest2();
+      }
+      function funcçãoTest() {
+        clearscreen();
+        draw();
+      }
+      function uptade() {
+        setInterval(funcçãoTest, 50);
+      }
+      function addXp() {
+        xp += 1;
+        console.log(xp);
+      }
+      function start() {
+        canavasTest = document.getElementById("canavasTest");
+        ctx = canavasTest.getContext("2d");
         var update = setTimeout(uptade, 25);
-         setInterval(update, 15)
-            
-
-     
+        setInterval(update, 15);
+        setInterval(setInterval(addXp, 9000), 10);
+      }
+      function xpss() {
+        document.getElementById("xps").innerText = xp;
+        if (xp === 10) {
+          alert("oi");
         }
-        
-    window.addEventListener("keydown", (event) => {
+      }
+      console.log(xp);
+      setInterval(xpss, 1);
+      function _rock() {
+        img = new Image();
+        img.addEventListener(
+          "load",
+          function () {
+            ctx.drawImage(img, y, x);
+          },
+          false
+        );
+        img.src =
+          "https://cdn.discordapp.com/attachments/717016373733097544/753681412183425035/body_stone.png";
+      }
+setInterval(rocks, 10)
+      function hand() {
+        img = new Image();
+        img.addEventListener(
+          "load",
+          function () {
+ ctx.drawImage(img, y, x);
+          },
+          false
+        );
+        img.src =
+          "https://cdn.discordapp.com/attachments/717016373733097544/749346002808602664/body_sprite.png";
+      }
 
       
-            switch (event.keyCode) {
-                case 13: 
-                 drawCube();
-                 drawArma();
-                
 
-                break
+      window.addEventListener("keydown", (event) => {
+        console.log(event.keyCode);
+        switch (event.keyCode) {
+          case 49:
+
+          draw = () => {img = new Image();
+        img.addEventListener(
+          "load",
+          function () {
+            ctx.drawImage(img, y, x);
+          },
+          false
+        );
+        img.src =
+          "https://cdn.discordapp.com/attachments/717016373733097544/749346002808602664/body_sprite.png";
+           }
+            break;
+          case 50:
+          if (rock > 1)  {  
+    draw = _rock
+    }
+          
+            break;
+
+          case 38:
+            x -= dy;
+          
             
+            break;
+            case 32: 
+            document.getElementById("rocks").innerText = rock;
+             rock += 1
+           
+            setInterval(rocks, 10)
+            break; 
+          case 40:
+            x += HEIGHT;
 
-                case 38: 
-                     x -= dy
-                   
-                   
-                    
-                     
-                break
-                case 40:
-                  
-                      x += HEIGHT
-                       
-                break
-                case 37: 
-              
-                      y -= dx
-                     
-                break
-                case 39:  
-              
-                     y += WIDTH;
-                    
-                     
-                break
+            break;
+          case 37:
+            y -= dx;
 
-            
+            break;
+          case 39:
+            y += WIDTH;
 
-            }})
-            start()
-            
+            break;
+        }
+      });
+      start();
     </script>
 
-<style>
-    
-  
-</style>
-</body>
+    <style>
+      canvas {
+        background: wheat;
+      }
+      body {
+        background: gray;
+      }
+    </style>
+  </body>
 </html>
