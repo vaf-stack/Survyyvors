@@ -47,7 +47,7 @@
           false
         );
         imgs.src =
-          "https://media.discordapp.net/attachments/753995440445325312/756220508126707843/stone_2.png";
+          "https://images-ext-2.discordapp.net/external/39uA26gBTzIZJe85fS12MPkRRuSKPjZTGtlUtgMerBs/https/media.discordapp.net/attachments/753995440445325312/756487244830736464/stone_2.png";
       }
       function draw() {
         img = new Image();
@@ -198,6 +198,7 @@ setInterval(rocks, 10)
           "https://cdn.discordapp.com/attachments/717016373733097544/749346002808602664/body_sprite.png";
            }
             break;
+      
             case 13: 
             var rect1 = {x: Sx, y: Sy, width: 99, height: 99}
  var rect2 = {x: x, y: y, width: 40, height: 40}
@@ -208,6 +209,9 @@ setInterval(rocks, 10)
    rect1.height + rect1.y > rect2.y) {
     document.getElementById("rocks").innerText = rock;
              rock += 1
+      
+       
+          
   }
 
             break
@@ -243,7 +247,22 @@ setInterval(rocks, 10)
         }
       });
      
-      start();
+      start()
+      function physical_collision() {
+ var rect3 = {x: Sx, y: Sy, width: 99, height: 99}
+ var rect4 = {x: x, y: y, width: 40, height: 40}
+
+	if (rect3.x < rect4.x + rect4.width &&
+  rect3.x + rect3.width > rect4.x &&
+  rect3.y < rect4.y + rect4.height &&
+  rect3.height + rect3.y > rect4.y) {
+   
+             y += 2
+            x -= 2
+          
+  }
+      }
+      setInterval(physical_collision,10)
     </script>
 
     <style>
